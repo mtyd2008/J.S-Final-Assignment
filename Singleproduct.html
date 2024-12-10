@@ -40,7 +40,7 @@
     <div class="container"></div>
 
     <div class="butn">
-    <button onclick="back()">Go Back</button>
+    <button class="btn btn-primary" onclick="back()">Go Back</button>
     </div>
 
 
@@ -62,10 +62,10 @@
             <p>Price:$${res.price}</p>
             <p>Brand: ${res.brand}</p>
             <p>Category: ${res.category}</p>
-            <p>Stock: ${res.stock}</p>
             <p>Weight: ${res.weight}</p>
             <p>Ratings: ${res.rating}</p>
-            
+            <p>Avaible: ${res.availabilityStatus}</p>
+            <p>Stock: ${res.stock}</p>
         </div>`
 
         }).catch(err=>console.log(err));

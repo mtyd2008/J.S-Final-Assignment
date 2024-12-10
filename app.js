@@ -1,24 +1,24 @@
 const div = document.querySelector(".container")
 
-
-const data = fetch("https://dummyjson.com/products")
+  const product = fetch("https://dummyjson.com/products")
   .then((res) => res.json())
   .then((res)=>{
     console.log(res.products);
 
     res.products.map((item,index)=>{
         div.innerHTML += `<div class="cards">
-            <img src = ${item.thumbnail}
-            <h1>${item.title}</h1>
+            <img src = ${item.thumbnail}>
+            <h1 class="head">${item.title}</h1>
             <p>${item.description.slice(1,20)}....</p>
             <p>Price:$${item.price}</p>
-            <button onclick="showmore(${item.id})">See More</button>
-            <button onclick="addtocart(${index})">Add to cart</button>
+            <button class="btn btn-primary" onclick="showmore(${item.id})">See More</button>
+            <button class="btn btn-primary" onclick="addtocart(${index})">Add to cart</button>
         </div>`
     })
-    
+
   })
   .catch(err=>console.log(err));
+
 
 function showmore(id){
     window.location = "Singleproduct.html"
@@ -35,18 +35,24 @@ if(checkData === null){
 
 
 function addtocart(index){
-    const checkIndex = cartitems.indexOf(products[index]);
+    const checkIndex = cartitems.indexOf(product[index]);
   if(checkIndex === -1) {
-    products[index].quantity = 1;
-    cartitems.push(products[index]);
+    product[index].quantity = 1;
+    cartitems.push(product[index]);
   } else {
     cartitems[checkIndex].quantity += 1;
-  }
+  } 
   console.log(checkIndex);
+
+  Swal.fire({
+    title: "Item Added To Cart!",
+    text: "Thanks!",
+    icon: "success",
+  });
 }
 
 function check(){
-    window.location = cart.html 
+    window.location = "cart.html "
     localStorage.setItem("cart" , JSON.stringify(cartitems))
 }
 
