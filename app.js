@@ -15,7 +15,7 @@ let products = []
             <h1 class="head">${item.title.slice(0,20)}..</h1>
             <p>${item.description.slice(1,20)}....</p>
             <p>Price:$${item.price}</p>
-            <button class="btn btn-primary" onclick="showmore(${item.id})">See More</button>
+            <button class="btn btn-secondary bg" onclick="showmore(${item.id})">See More</button>
             <button class="btn btn-primary" onclick="addtocart(${index})">Add to cart</button>
         </div>`
     })
